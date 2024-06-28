@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 export const sendVerificationEmail = async(
     email:string, token:string
 )=>{
-    const confirmLink = `https://s7-pearl.vercel.app/auth/new-verification?token=${token}`
+    const confirmLink = `http://localhost:3000/auth/new-verification?token=${token}`
     await transporter.sendMail({
         from: '"Email Verification" <maddison53@ethereal.email>', // sender address
         to: email, // list of receivers
