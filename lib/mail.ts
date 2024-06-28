@@ -11,6 +11,21 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+export const sendPasswordResetEmail = async(
+  email:string, token:string
+)=>{
+  const confirmLink = `https://s7-pearl.vercel.app/auth/new-password?token=${token}`
+  await transporter.sendMail({
+      from: '"Reset Password" <maddison53@ethereal.email>', // sender address
+      to: email, // list of receivers
+      subject: "reset your password", // Subject line
+      text: "reset your password", // plain text body
+      html: `<p>Click <a href="${confirmLink}">here to reset password<a/><p/>`, // html body
+    });
+
+}
+
+
 export const sendVerificationEmail = async(
     email:string, token:string
 )=>{
@@ -18,7 +33,7 @@ export const sendVerificationEmail = async(
     await transporter.sendMail({
         from: '"Email Verification" <maddison53@ethereal.email>', // sender address
         to: email, // list of receivers
-        subject: "code", // Subject line
+        subject: "Confirm your email", // Subject line
         text: "Confirm your email", // plain text body
         html: `<p>Click <a href="${confirmLink}">here<a/><p/>`, // html body
       });
