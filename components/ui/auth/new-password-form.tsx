@@ -1,6 +1,5 @@
 "use client";
-
-import React, { Suspense, useState, useTransition } from 'react';
+import React, { Suspense, useEffect, useState, useTransition } from "react";
 import { CardWrapper } from "./card-wrapper";
 import * as z from "zod";
 import { useForm } from "react-hook-form";
@@ -21,20 +20,29 @@ import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
 import { newPassword } from "@/actions/new-password";
 
-// Component to handle token retrieval
-const TokenHandler = ({ setToken }) => {
+// Define props for SearchParamsHandler
+interface SearchParamsHandlerProps {
+  setToken: React.Dispatch<React.SetStateAction<string | undefined>>;
+}
+
+// Component to handle the search parameters
+const SearchParamsHandler: React.FC<SearchParamsHandlerProps> = ({ setToken }) => {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
-  if (token) setToken(token);
+
+  useEffect(() => {
+    setToken(token || "");
+  }, [token, setToken]);
+
   return null;
 };
 
-export const NewPasswordForm = () => {
+// Main component
+export const NewPasswordForm: React.FC = () => {
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
-  const [token, setToken] = useState<string | undefined>(undefined);
+  const [token, setToken] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
-
   const form = useForm<z.infer<typeof NewPasswordSchema>>({
     resolver: zodResolver(NewPasswordSchema),
     defaultValues: {
@@ -46,14 +54,10 @@ export const NewPasswordForm = () => {
     setError("");
     setSuccess("");
     startTransition(() => {
-      if (token) {
-        newPassword(values, token).then((data) => {
-          setError(data?.error);
-          setSuccess(data?.success);
-        });
-      } else {
-        setError("Token is missing.");
-      }
+      newPassword(values, token).then((data) => {
+        setError(data?.error);
+        setSuccess(data?.success);
+      });
     });
   };
 
@@ -64,7 +68,7 @@ export const NewPasswordForm = () => {
       backButtonHref="/auth/login"
     >
       <Suspense fallback={<div>Loading...</div>}>
-        <TokenHandler setToken={setToken} />
+        <SearchParamsHandler setToken={setToken} />
       </Suspense>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

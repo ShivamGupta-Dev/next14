@@ -32,7 +32,7 @@ export const newPassword = async(
     }
 
     const existingUser = await getUserbyEmail(existingToken.email)
-    if(!existingToken){
+    if(!existingUser){
         return { error: "Email does not exist"}
     }
     const hashedPassword = await bcrypt.hash(password,10);
