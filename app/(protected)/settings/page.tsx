@@ -1,12 +1,15 @@
 import { auth, signOut } from "@/auth";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const SettingsPage = async () => {
     const session = await auth();
+    const img = JSON.stringify(session?.user.image)
     return(
         <div >
             {JSON.stringify(session)}
-            <form action={async()=>{
+            
+         <form action={async()=>{
                 "use server"
                 await signOut();
             }}>
@@ -15,6 +18,7 @@ const SettingsPage = async () => {
              </button>
              
             </form>
+         
         </div>
         
     )

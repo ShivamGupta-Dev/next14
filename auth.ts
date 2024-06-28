@@ -2,7 +2,7 @@ import NextAuth from "next-auth"
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import  authConfig  from "@/auth.config";
 import { db } from "./lib/db";  
-import { getUserbyId } from "./data/user";
+import { getUserbyEmail, getUserbyId } from "./data/user";
 import { UserRole } from "@prisma/client";
 
 export const{
@@ -25,6 +25,11 @@ export const{
         }
     },
     callbacks:{
+        async signIn({user, account}){
+            if(account?.provider !== "credentials") return true;
+            
+          return true;  
+        },
         async session({token, session}) {
             if(token.sub && session.user){
                 session.user.id = token.sub
