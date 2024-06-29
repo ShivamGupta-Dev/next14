@@ -13,13 +13,14 @@ import{
     AvatarFallback
 } from "@/components/ui/avatar"
 import { LoginButton } from "./login-button"
-
+import { useCurrentUser } from "@/hooks/use-current-user"
 export const UserButton = () => {
+    const user = useCurrentUser();
     return(
         <DropdownMenu>
             <DropdownMenuTrigger>
                 <Avatar>
-                    <AvatarImage src=""/>
+                    <AvatarImage src={user?.image || ""}/>
                     <AvatarFallback className="bg-sky-200">
                         <FaUser className="text-white"/>
                     </AvatarFallback>
