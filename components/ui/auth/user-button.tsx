@@ -14,8 +14,12 @@ import{
 } from "@/components/ui/avatar"
 import { LoginButton } from "./login-button"
 import { useCurrentUser } from "@/hooks/use-current-user"
+
+
+
 export const UserButton = () => {
-    const user = useCurrentUser();
+  const user = useCurrentUser();
+
     return(
         <DropdownMenu>
             <DropdownMenuTrigger>
