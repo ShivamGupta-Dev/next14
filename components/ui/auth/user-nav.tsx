@@ -14,7 +14,7 @@ export const NavUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('/api/auth/providers');
+        const response = await fetch('/api/users/providers');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
