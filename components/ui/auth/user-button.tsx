@@ -13,7 +13,7 @@ import{
     AvatarFallback
 } from "@/components/ui/avatar"
 import { LoginButton } from "./login-button"
-import { useCurrentUser } from "@/hook/use-current-user"
+import { useCurrentUser } from "@/hooks/use-current-user"
 
 export const UserButton = () => {
   const user = useCurrentUser();
