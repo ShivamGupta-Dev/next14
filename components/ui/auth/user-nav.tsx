@@ -1,4 +1,4 @@
-"use client"
+
 import { UserButton } from "@/components/ui/auth/user-button"
 import { Button } from "@/components/ui/button"
 import  Link  from "next/link"
@@ -30,7 +30,7 @@ export const NavUsers= async()=>{
             {users.map((user, index) => (
                 <li className="bg-secondary flex justify-between items-center p-4 rounded-xl
                 w-[400px] shadow-sm m-5" key={index}><p className="flex gap-x-2">{user.name}</p>
-                    
+                
                 <Avatar>
                     <AvatarImage src={user.image || ""}/>
                     <AvatarFallback className="bg-sky-200">
