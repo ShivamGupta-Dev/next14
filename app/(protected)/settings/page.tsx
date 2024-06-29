@@ -1,27 +1,24 @@
-import { auth, signOut } from "@/auth";
+"use client"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useCurrentUser } from "@/hooks/use-current-user";
+import { signOut } from "next-auth/react";
 
-const SettingsPage = async () => {
-    const session = await auth();
-    const img = JSON.stringify(session?.user.image)
-    return(
-        <div >
-            {JSON.stringify(session)}
-            
-         <form action={async()=>{
-                "use server"
-                await signOut();
-            }}>
-             <button >
-                Sign Out
-             </button>
-             
-            </form>
-         
-        </div>
+
+const SettingsPage = () => {
+    const user = useCurrentUser();
+    const onClick = ()=>{
+        signOut();
+    }
+  return (
+    <div className="bg-white p-10 rounded-xl">
         
-    )
-}
+        
+        <button onClick={onClick} type="submit">
+            Sign Out
+        </button>
+              
+    </div>
+  );
+};
 
 export default SettingsPage;
