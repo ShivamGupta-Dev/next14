@@ -1,30 +1,27 @@
-"use client"
+"use client";
 import { User } from "@prisma/client";
-import { useEffect, useState } from 'react';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { FaUser } from 'react-icons/fa';
+import React from "react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { FaUser } from "react-icons/fa";
 
-interface UseBoxProps {
-    data: User,
+interface UserBoxProps {
+  data: User;
 }
-const Userbox :React.FC<UseBoxProps> =({
-    data
-})=> {
-    return(
-        <ul>
-        <li
-          className="bg-secondary flex justify-between items-center p-4 rounded-xl w-[400px] shadow-sm m-5"
-        >
-          <p className="flex gap-x-2">{data.name}</p>
-          <Avatar>
-            <AvatarImage src={data.image || ''} />
-            <AvatarFallback className="bg-sky-200">
-              <FaUser className="text-white" />
-            </AvatarFallback>
-          </Avatar>
-        </li>
+
+const UserBox: React.FC<UserBoxProps> = ({ data }) => {
+  return (
+    <ul className="flex flex-col items-center">
+      <li className="bg-gray-100 flex justify-between items-center p-4 rounded-xl w-full max-w-md shadow-md my-3 transition-transform transform hover:scale-105">
+        <p className="text-lg font-medium text-gray-800">{data.name}</p>
+        <Avatar className="w-12 h-12 ml-4">
+          <AvatarImage src={data.image || ""} />
+          <AvatarFallback className="bg-sky-500 flex justify-center items-center">
+            <FaUser className="text-white" />
+          </AvatarFallback>
+        </Avatar>
+      </li>
     </ul>
-    )
-}
+  );
+};
 
-export default Userbox;
+export default UserBox;

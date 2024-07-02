@@ -1,39 +1,28 @@
-"use client"
-import { UserButton } from "@/components/ui/auth/user-button"
-import { Button } from "@/components/ui/button"
-import  Link  from "next/link"
-import { usePathname } from "next/navigation"
+"use client";
 
-export const Navbar=()=>{
-    const pathname = usePathname();
-    return(
-        <div className="bg-secondary flex justify-between items-center p-4 rounded-xl
-         w-[600px] shadow-sm">
-            <div className="flex gap-x-2">
-                <Button asChild
-                variant={pathname === "/server"? "default":"outline"}>
-                    <Link href="/server">
-                        Server
-                    </Link>
+import { UserButton } from "@/components/ui/auth/user-button";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-                </Button>
-                
-                <Button asChild
-                variant={pathname === "/users"? "default":"outline"}>
-                    <Link href="/users">
-                        Users
-                    </Link>
+export const Navbar = () => {
+  const pathname = usePathname();
 
-                </Button>
-                <Button asChild
-                    variant={pathname === "/settings"? "default":"outline"}>
-                        <Link href="/settings">
-                            Settings
-                        </Link>
-
-                </Button>
-            </div>
-            <UserButton/>
-        </div>
-    )
-}
+  return (
+    <nav className="fixed top-0 left-0 right-0 bg-gray-800 flex justify-between items-center p-4 shadow-md z-50">
+      <div className="flex gap-x-4">
+        <Button asChild variant={pathname === "/users" ? "default" : "outline"}>
+          <Link href="/users">
+            Users
+          </Link>
+        </Button>
+        <Button asChild variant={pathname === "/settings" ? "default" : "outline"}>
+          <Link href="/settings">
+            Settings
+          </Link>
+        </Button>
+      </div>
+      <UserButton />
+    </nav>
+  );
+};

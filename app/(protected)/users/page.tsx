@@ -8,7 +8,7 @@ import { signOut } from "next-auth/react";
 export default async function UsersPage () {
   const users = await getUsers();
   return (
-    <div>
+    <div className="mt-20 float-left mx-5 ">
         <UserList items={users}/>
 
               
