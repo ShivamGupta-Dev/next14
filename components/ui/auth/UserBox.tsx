@@ -10,17 +10,34 @@ interface UserBoxProps {
 
 const UserBox: React.FC<UserBoxProps> = ({ data }) => {
   return (
-    <ul className="flex flex-col items-center">
-      <li className="bg-gray-100 flex justify-between items-center p-4 rounded-xl w-full max-w-md shadow-md my-3 transition-transform transform hover:scale-105">
-        <p className="text-lg font-medium text-gray-800">{data.name}</p>
-        <Avatar className="w-12 h-12 ml-4">
+   
+      <div
+      className=" w-full relative flex items-center
+      space-x-3 bg-gray-700 p-3 hover:bg-neutral-100
+      rounded-lg transition cursor-pointer"
+      >
+        <Avatar >
           <AvatarImage src={data.image || ""} />
           <AvatarFallback className="bg-sky-500 flex justify-center items-center">
             <FaUser className="text-white" />
           </AvatarFallback>
         </Avatar>
-      </li>
-    </ul>
+        <div className="min-w-0 flex-1">
+          <div className="focus:outline-none">
+            <div
+            className="flex justify-between items-center
+            mb-1"
+            >
+              <p className="text-sm font-medium
+              text-gray-900">
+                  {data.name}
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
   );
 };
 

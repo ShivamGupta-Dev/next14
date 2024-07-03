@@ -1,17 +1,15 @@
-import { getUsers } from "@/actions/getUsers";
-import UserList from "@/components/ui/auth/user-nav";
+'use client'
 
-import { useCurrentUser } from "@/hooks/use-current-user";
-import { signOut } from "next-auth/react";
+import EmptyState from "../_components/EmptySpace";
 
 
-export default async function UsersPage () {
-  const users = await getUsers();
-  return (
-    <div className="mt-20 float-left mx-5 ">
-        <UserList items={users}/>
 
-              
+const Users = () => {
+  return ( 
+    <div className="hidden lg:block lg:pl-80 h-full">
+      <EmptyState/>
     </div>
-  );
-};
+   );
+}
+ 
+export default Users;
