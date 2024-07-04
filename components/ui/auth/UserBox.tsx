@@ -3,18 +3,25 @@ import { User } from "@prisma/client";
 import React from "react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { FaUser } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 interface UserBoxProps {
   data: User;
 }
 
 const UserBox: React.FC<UserBoxProps> = ({ data }) => {
+  const router = useRouter();
+  const onClick = () => {
+    router.push(`/profile/${data.id}`);
+  };
+
   return (
    
       <div
       className=" w-full relative flex items-center
       space-x-3 bg-gray-700 p-3 hover:bg-neutral-100
       rounded-lg transition cursor-pointer"
+      onClick={onClick}
       >
         <Avatar >
           <AvatarImage src={data.image || ""} />
