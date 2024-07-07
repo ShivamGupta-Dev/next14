@@ -1,6 +1,8 @@
 "use client"
 import { User } from "@prisma/client";
 import Userbox from "./UserBox";
+import { Button } from "../button";
+import Link from "next/link";
 
 interface UserListProps{
   items: User[]
@@ -37,6 +39,11 @@ const UserList:React.FC<UserListProps> = ({
           <Userbox key={item.id} data = {item}/>
             ))}
         </div>
+        <Link href='/shop'>
+        <Button >
+                    Shop
+        </Button> 
+        </Link>
       
     </aside>
     
