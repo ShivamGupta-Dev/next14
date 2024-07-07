@@ -1,5 +1,19 @@
 // pages/shop.js
 import React from 'react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Header } from '@/components/ui/auth/header';
+import { HeaderPro } from '../_components/header';
+import { FormError } from "@/components/form-error";
+import { ExclamationTriangleIcon } from '@radix-ui/react-icons';
+import { FormSuccess } from '@/components/form-success';
+import Link from 'next/link';
 
 const products = [
   {
@@ -19,17 +33,28 @@ const products = [
 
 const Shop = () => {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Shop</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {products.map(product => (
-          <div key={product.id} className="border p-4 rounded-lg shadow">
-            
-            <h2 className="text-xl font-semibold">{product.name}</h2>
-            <a href='https://amzn.to/3VXmrb4' className="text-blue-500 hover:underline mt-2 block">Buy Now</a>
-          </div>
-        ))}
-      </div>
+       
+
+    <div >
+       <Card className="w-[400px] shadow-md">
+      <CardHeader>
+        <HeaderPro label="Product"/>
+      </CardHeader>
+      <CardContent className='flex flex-col items-center justify-center'>
+          <img src="https://m.media-amazon.com/images/I/61o8j2ohWvL._SY450_.jpg" alt="Highlighter"  
+          className='w-[200px] '/>
+        <p>FLAIR Pastel 5 Shades Hi-lighter Pouch Pack</p>
+        <Link href='https://amzn.to/3zwzCIJ' className='text-blue-600'>
+         <h1>🔗https://amzn.to/3zwzCIJ</h1>
+        </Link>
+      </CardContent>
+      <CardFooter>
+        
+        <FormSuccess message='Note: By purchasing through this affiliate Amazon link, you are supporting us as we receive a commission from your purchase at no extra cost to you.
+           Thank you for your support!'/>
+      </CardFooter>
+      
+    </Card>
     </div>
   );
 };
