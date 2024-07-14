@@ -36,7 +36,7 @@ const Shop = () => {
        
 
     <div >
-       <Card className="w-[400px] shadow-md">
+       <Card className="w-[400px] shadow-md mt-10">
       <CardHeader>
         <HeaderPro label="Product"/>
       </CardHeader>
@@ -46,6 +46,25 @@ const Shop = () => {
         <p>FLAIR Pastel 5 Shades Hi-lighter Pouch Pack</p>
         <Link href='https://amzn.to/3zwzCIJ' className='text-blue-600'>
          <h1>🔗https://amzn.to/3zwzCIJ</h1>
+        </Link>
+      </CardContent>
+      <CardFooter>
+        
+        <FormSuccess message='Note: By purchasing through this affiliate Amazon link, you are supporting us as we receive a commission from your purchase at no extra cost to you.
+           Thank you for your support!'/>
+      </CardFooter>
+      
+    </Card>
+    <Card className="w-[400px] shadow-md mt-10 mb-10">
+      <CardHeader>
+        <HeaderPro label="Product"/>
+      </CardHeader>
+      <CardContent className='flex flex-col items-center justify-center'>
+          <img src="https://m.media-amazon.com/images/I/61uA2UVnYWL._SL1500_.jpg" alt="Ipad 10th Gen"  
+          className='w-[200px] '/>
+        <p>Apple iPad (10th generation): with A14 Bionic chip, 27.69 cm (10.9″) Liquid Retina display, 64GB, Wi-Fi 6, 12MP front/12MP back camera, Touch ID</p>
+        <Link href='https://amzn.to/4bH3oI6' className='text-blue-600'>
+         <h1>🔗https://amzn.to/4bH3oI6</h1>
         </Link>
       </CardContent>
       <CardFooter>
