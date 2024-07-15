@@ -63,7 +63,7 @@ const emailTemplate = (content: string): string => `
 <body>
   <div class="container">
     <div class="header">
-      <h1>Password Reset</h1>
+      <h1>S7</h1>
     </div>
     <div class="content">
       ${content}
