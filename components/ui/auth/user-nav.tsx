@@ -3,6 +3,8 @@ import { User } from "@prisma/client";
 import Userbox from "./UserBox";
 import { Button } from "../button";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
+import { logout } from "@/actions/logout";
 
 interface UserListProps{
   items: User[]
@@ -10,6 +12,9 @@ interface UserListProps{
 const UserList:React.FC<UserListProps> = ({
  items
 })=>{
+  const onClick = () =>{
+    logout()
+  }
   return(
     <aside 
     className="
@@ -42,6 +47,9 @@ const UserList:React.FC<UserListProps> = ({
         <Link href='/shop'>
         <Button >
                     Shop
+        </Button> 
+        <Button onClick={onClick}>
+                    Logout
         </Button> 
         </Link>
       
