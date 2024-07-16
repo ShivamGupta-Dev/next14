@@ -16,7 +16,7 @@ const AuthLayout = ({
                 <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
             </div>
             
-            <div className='flex justify-center relative my-20 z-10'>
+            <div className='flex justify-center relative top-7'>
                 <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
                     
                 <div>

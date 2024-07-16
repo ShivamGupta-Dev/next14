@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { TextGenerateEffect } from "../text-generate";
 
 const font = Poppins({
     subsets:["latin"],
@@ -19,7 +20,7 @@ export const Header = ({
             <h1 className={cn("text-3xl font-semibold",
                 font.className,
             )}>
-                🔐Verify
+                <TextGenerateEffect words='🔐 Verify' />
             </h1>
             <p className="text-muted-forground text-sm">
                 {label}
