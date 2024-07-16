@@ -5,6 +5,10 @@ import { Button } from "../button";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { logout } from "@/actions/logout";
+import MagicButton from "../MagicButton";
+
+
+import { CiSettings } from "react-icons/ci";
 
 interface UserListProps{
   items: User[]
@@ -52,6 +56,13 @@ const UserList:React.FC<UserListProps> = ({
                     Logout
         </Button> 
         </Link>
+          <Link href='/settings'>
+            <MagicButton
+            position="left"
+            title=""
+            icon={<CiSettings />}
+            />
+          </Link>
       
     </aside>
     
