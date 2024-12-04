@@ -52,10 +52,17 @@ const UserList:React.FC<UserListProps> = ({
         <Button >
                     Shop
         </Button> 
+        
+        </Link>
+        <Link href='/screenshort'>
+        <Button >
+                    ScreenShort
+        </Button> 
+        
+        </Link>
         <Button onClick={onClick}>
                     Logout
         </Button> 
-        </Link>
           <Link href='/settings'>
             <MagicButton
             position="left"
