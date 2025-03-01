@@ -7,8 +7,8 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "S7",
-  description: "Made By Shivam",
+  title: "Eclipseria",
+  description: "Motivational zone",
 };
 
 export default async function RootLayout({
