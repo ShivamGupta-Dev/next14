@@ -2,7 +2,7 @@
 
 
 import { FcGoogle } from "react-icons/fc"
-import { FaDiscord } from "react-icons/fa"
+import { FaDiscord, FaGithub } from "react-icons/fa"
 import { Button } from "../button";
 import { signIn } from "next-auth/react";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
@@ -26,8 +26,8 @@ export const Social = () => {
             size="lg"
             className="w-full"
             variant="outline"
-            onClick={()=>{}}>
-                <FaDiscord className="h-5 w-5"/>
+            onClick={()=> onClick("github")}>
+                <FaGithub className="h-5 w-5"/>
             </Button>
         </div>
     );

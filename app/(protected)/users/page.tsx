@@ -7,11 +7,7 @@ import EmptyState from "../_components/EmptySpace";
 
 const Users = () => {
   return ( 
-    <div className="hidden lg:block lg:pl-80 h-full">
-      <EmptyState/>
-      
-      
-    </div>
+    <h1>We are working on the interface</h1>
    );
 }
  
